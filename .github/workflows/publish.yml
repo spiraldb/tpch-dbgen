@@ -19,7 +19,7 @@ jobs:
       - name: Build
         run: |
           ./scripts/ci-build.sh
-          ./scripts/ci-release.sh
+          ./scripts/ci-release.sh "${{  github.ref_name }}" linux
 
   publish-macos:
     name: Publish macOS
@@ -31,6 +31,6 @@ jobs:
       - name: Build
         run: |
           ./scripts/ci-build.sh
-          ./scripts/ci-release.sh
+          ./scripts/ci-release.sh "${{  github.ref_name }}" macos
 
 
