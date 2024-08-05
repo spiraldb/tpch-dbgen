@@ -9,7 +9,7 @@ PLATFORM="$2"
 OUTPUT_FILE=dbgen-${PLATFORM}-${RELEASE}.zip
 echo "packaging ${OUTPUT_FILE}"
 
-zip $OUTPUT_FILE dbgen
+tar cvf $OUTPUT_FILE dbgen
 
 gh release upload "$RELEASE" "$OUTPUT_FILE"
 
