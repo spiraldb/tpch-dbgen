@@ -15,5 +15,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build
-        run: make dbgen
+        run: ./scripts/ci.sh
 
