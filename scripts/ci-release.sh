@@ -6,7 +6,7 @@ RELEASE="$1"
 PLATFORM="$2"
 
 
-OUTPUT_FILE=dbgen-${PLATFORM}-${RELEASE}.zip
+OUTPUT_FILE=dbgen-${PLATFORM}-${RELEASE}.tar
 echo "packaging ${OUTPUT_FILE}"
 
 tar cvf $OUTPUT_FILE dbgen
