@@ -40,9 +40,9 @@
 *
 */
 #include <stdio.h>
-#ifndef _POSIX_SOURCE
+#ifndef __APPLE__
 #include <malloc.h>
-#endif /* POSIX_SOURCE */
+#endif /* __APPLE__ */
 #if (defined(_POSIX_)||!defined(WIN32))
 #include <unistd.h>
 #endif /* WIN32 */

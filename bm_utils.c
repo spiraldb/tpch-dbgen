@@ -67,9 +67,9 @@
 #endif            /* HP */
 #include <ctype.h>
 #include <math.h>
-#ifndef _POSIX_SOURCE
+#ifndef __APPLE__
 #include <malloc.h>
-#endif /* POSIX_SOURCE */
+#endif /* __APPLE__ */
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
