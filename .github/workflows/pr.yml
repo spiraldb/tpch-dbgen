@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  pull_request: {}
+  workflow_dispatch: {}
+
+
+
+jobs:
+  publish-linux:
+    name: Build Linux amd64
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          ./scripts/ci-build.sh
+
+  publish-macos:
+    name: Build macOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          ./scripts/ci-build.sh
+
+
