@@ -12,6 +12,8 @@ jobs:
   publish-linux:
     name: Publish Linux amd64
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
       - name: Build
@@ -22,6 +24,8 @@ jobs:
   publish-macos:
     name: Publish macOS
     runs-on: macos-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
       - name: Build
