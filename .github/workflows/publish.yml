@@ -9,28 +9,48 @@ on:
 
 
 jobs:
-  publish-linux:
-    name: Publish Linux amd64
+  publish-aarch64-linux-gnu:
+    name: Publish aarch64-linux-gnu
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
+      - uses: goto-bus-stop/setup-zig@v2
       - name: Build
         run: |
-          ./scripts/ci-build.sh
-          ./scripts/ci-release.sh "${{  github.ref_name }}" linux
+          ./scripts/ci-build.sh "aarch64-linux-gnu"
+          ./scripts/ci-release.sh "aarch64-linux-gnu"
 
-  publish-macos:
-    name: Publish macOS
+  publish-x86_64-linux-gnu:
+    name: Publish x86_64-linux-gnu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: goto-bus-stop/setup-zig@v2
+      - name: Build
+        run: |
+          ./scripts/ci-build.sh "x86_64-linux-gnu"
+          ./scripts/ci-release.sh "x86_64-linux-gnu"
+
+  publish-aarch64-macos:
+    name: publish aarch64-macos
     runs-on: macos-latest
-    env:
-      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
+      - uses: goto-bus-stop/setup-zig@v2
       - name: Build
         run: |
-          ./scripts/ci-build.sh
-          ./scripts/ci-release.sh "${{  github.ref_name }}" macos
+          ./scripts/ci-build.sh "aarch64-macos"
+          ./scripts/ci-release.sh "aarch64-macos"
 
+
+  publish-x86_64-macos:
+    name: Publish x86_64-macos
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: goto-bus-stop/setup-zig@v2
+      - name: Build
+        run: |
+          ./scripts/ci-build.sh "x86_64-macos"
+          ./scripts/ci-release.sh "x86_64-macos"
 

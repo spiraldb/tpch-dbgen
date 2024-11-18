@@ -9,22 +9,45 @@ on:
 
 
 jobs:
-  publish-linux:
-    name: Build Linux amd64
+  build-aarch64-linux-gnu:
+    name: Build aarch64-linux-gnu
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: goto-bus-stop/setup-zig@v2
       - name: Build
         run: |
-          ./scripts/ci-build.sh
+          ./scripts/ci-build.sh "aarch64-linux-gnu"
 
-  publish-macos:
-    name: Build macOS
+  build-x86_64-linux-gnu:
+    name: Build x86_64-linux-gnu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: goto-bus-stop/setup-zig@v2
+      - name: Build
+        run: |
+          ./scripts/ci-build.sh "x86_64-linux-gnu"
+
+  build-aarch64-macos:
+    name: Build aarch64-macos
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: goto-bus-stop/setup-zig@v2
       - name: Build
         run: |
-          ./scripts/ci-build.sh
+          ./scripts/ci-build.sh "aarch64-macos"
+
+
+  build-x86_64-macos:
+    name: Build x86_64-macos
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: goto-bus-stop/setup-zig@v2
+      - name: Build
+        run: |
+          ./scripts/ci-build.sh "x86_64-macos"
 
 
