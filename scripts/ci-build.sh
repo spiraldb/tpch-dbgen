@@ -1,4 +1,4 @@
 
 echo "making dbgen..."
-make -j dbgen
+make TARGET="$1" -j dbgen
 
